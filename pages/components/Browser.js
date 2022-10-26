@@ -53,6 +53,19 @@ const Tabs = ({ tabs, width, setActiveTab, activeTab, removeTab, addTab }) => {
   );
 };
 
+const SearchUrl = () => {
+  return (
+    <div className="border-b border-gray-300 p-2">
+      <input
+        type="url"
+        name="url"
+        className="block w-full px-5 py-2 rounded-md border border-gray-200 sm:text-sm"
+        placeholder="https://www.google.com/"
+      />
+    </div>
+  );
+};
+
 const Browser = () => {
   const tabParent = useRef(null);
   const [width, setWidth] = useState(100);
@@ -64,7 +77,6 @@ const Browser = () => {
     },
   ]);
   const [activeTab, setActiveTab] = useState(tabs[tabs.length - 1]);
-  const [url, setUrl] = useState(activeTab.url);
 
   useLayoutEffect(() => {
     function updateSize() {
@@ -115,18 +127,7 @@ const Browser = () => {
           </div>
           <ThemeToggle />
         </div>
-        <div className="border-b border-gray-300 p-2">
-          <input
-            type="url"
-            name="url"
-            id="url"
-            onChange={(e) => {
-              setUrl(e.target.value);
-            }}
-            className="block w-full px-5 py-2 rounded-md border border-gray-200 sm:text-sm"
-            placeholder="https://www.google.com/"
-          />
-        </div>
+        <SearchUrl />
       </div>
     </>
   );
