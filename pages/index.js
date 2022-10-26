@@ -1,6 +1,13 @@
+import { useTheme } from "next-themes";
 import Head from "next/head";
+import Browser from "./components/Browser";
+import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
+  const { theme, setTheme } = useTheme("dark");
+
+  console.log("haha", theme);
+
   return (
     <div>
       <Head>
@@ -10,25 +17,7 @@ export default function Home() {
       </Head>
 
       <main className="p-3">
-        <div className="bg-gray-300 border border-gray-300 rounded-t-lg flex items-stretch">
-          <div className="px-4 pt-4 pb-3 mr-4 text-sm flex-0 text-gray-400 whitespace-nowrap">
-            <i className="mx-1 rounded-full w-3 h-3 bg-red-500 inline-block"></i>
-            <i className="mx-1 rounded-full w-3 h-3 bg-yellow-500 inline-block"></i>
-            <i className="mx-1 rounded-full w-3 h-3 bg-green-600 inline-block"></i>
-          </div>
-          <div className="flex gap-1">
-            <div className="relative px-4 py-2 mt-2 -mb-px flex-0 bg-gray-100 rounded-t-lg">
-              <div className="text-sm overflow-hidden pt-1 w-56 whitespace-nowrap">
-                Tab heading goes here
-              </div>
-            </div>
-            <div className="relative px-4 py-2 mt-2 -mb-px flex-0 bg-gray-100 rounded-t-lg">
-              <div className="text-sm overflow-hidden pt-1 whitespace-nowrap">
-                +
-              </div>
-            </div>
-          </div>
-        </div>
+        <Browser theme={theme} setTheme={setTheme} />
       </main>
 
       <footer></footer>
