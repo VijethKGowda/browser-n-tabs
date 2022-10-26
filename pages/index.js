@@ -1,13 +1,7 @@
-import { useTheme } from "next-themes";
 import Head from "next/head";
 import Browser from "./components/Browser";
-import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
-  const { theme, setTheme } = useTheme("dark");
-
-  console.log("haha", theme);
-
   return (
     <div>
       <Head>
@@ -17,7 +11,7 @@ export default function Home() {
       </Head>
 
       <main className="p-3">
-        <Browser theme={theme} setTheme={setTheme} />
+        <Browser />
       </main>
 
       <footer></footer>
